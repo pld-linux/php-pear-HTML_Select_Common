@@ -41,15 +41,16 @@ Ta klasa ma w PEAR status: %{_status}.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/I18N/%{_subclass}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_subclass}/{,Common}
 
-install %{_pearname}-%{version}/%{_subclass}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/I18N/%{_subclass}
+install %{_pearname}-%{version}/%{_subclass}/Common/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_subclass}/Common/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/%{_subclass}/examples/*
-%dir %{php_pear_dir}/I18N/%{_subclass}
-%{php_pear_dir}/I18N/%{_subclass}/*.php
+%doc %{_pearname}-%{version}/%{_subclass}/Common/examples
+%dir %{php_pear_dir}/%{_subclass}
+%dir %{php_pear_dir}/%{_subclass}/Common
+%{php_pear_dir}/%{_subclass}/Common/*.php
