@@ -8,13 +8,13 @@ Summary:	%{_pearname} - small classes to handle common <select> lists
 Summary(pl):	%{_pearname} - ma³e klasy do obs³ugi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	182210f08e809d51208ae4ecc70a4f3c
 URL:		http://pear.php.net/package/HTML_Select_Common/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 Obsoletes:	php-pear-HTML_Select
 BuildArch:	noarch
@@ -37,20 +37,24 @@ Dostarcza listy <select> do pytañ o:
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c
+%pear_package_setup
+
+mkdir -p docs/%{_pearname}
+mv ./%{php_pear_dir}/%{_class}/%{_subclass}/Common/examples docs/%{_pearname}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_subclass}/{,Common}
-
-install %{_pearname}-%{version}/%{_subclass}/Common/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_subclass}/Common/
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc %{_pearname}-%{version}/%{_subclass}/Common/examples
-%dir %{php_pear_dir}/%{_subclass}
-%dir %{php_pear_dir}/%{_subclass}/Common
-%{php_pear_dir}/%{_subclass}/Common/*.php
+%doc install.log
+%doc docs/%{_pearname}/examples
+%{php_pear_dir}/.registry/*.reg
+%dir %{php_pear_dir}/%{_class}/%{_subclass}
+%dir %{php_pear_dir}/%{_class}/%{_subclass}/Common
+%{php_pear_dir}/%{_class}/%{_subclass}/Common/*.php
