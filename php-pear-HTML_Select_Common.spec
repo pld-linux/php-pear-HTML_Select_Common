@@ -8,7 +8,7 @@ Summary:	%{_pearname} - small classes to handle common <select> lists
 Summary(pl):	%{_pearname} - ma³e klasy do obs³ugi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.1
-Release:	3
+Release:	3.1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -16,6 +16,7 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 URL:		http://pear.php.net/package/HTML_Select_Common/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
+Requires:	php-pear-I18N >= 0.8
 Obsoletes:	php-pear-HTML_Select
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
