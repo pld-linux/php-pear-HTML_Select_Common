@@ -8,7 +8,7 @@ Summary:	%{_pearname} - small classes to handle common <select> lists
 Summary(pl):	%{_pearname} - ma³e klasy do obs³ugi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.1
-Release:	3.1
+Release:	4
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
