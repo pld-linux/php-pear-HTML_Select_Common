@@ -5,7 +5,7 @@
 
 %define		_pearname	%{_class}_%{_subclass}_Common
 Summary:	%{_pearname} - small classes to handle common <select> lists
-Summary(pl):	%{_pearname} - ma≥e klasy do obs≥ugi list <select>
+Summary(pl.UTF-8):   %{_pearname} - ma≈Çe klasy do obs≈Çugi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.1
 Release:	4
@@ -31,8 +31,8 @@ Provides <select>lists for:
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Dostarcza listy <select> do pytaÒ o:
+%description -l pl.UTF-8
+Dostarcza listy <select> do pyta≈Ñ o:
  - kraj
  - kraje UK
  - stany US
