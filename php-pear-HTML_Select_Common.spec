@@ -5,7 +5,7 @@
 
 %define		_pearname	%{_class}_%{_subclass}_Common
 Summary:	%{_pearname} - small classes to handle common <select> lists
-Summary(pl.UTF-8):   %{_pearname} - małe klasy do obsługi list <select>
+Summary(pl.UTF-8):	%{_pearname} - małe klasy do obsługi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.1
 Release:	4
