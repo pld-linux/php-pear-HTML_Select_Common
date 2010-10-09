@@ -1,20 +1,17 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		HTML
-%define		_subclass	Select
 %define		_status		stable
-
-%define		_pearname	%{_class}_%{_subclass}_Common
+%define		_pearname	HTML_Select_Common
 Summary:	%{_pearname} - small classes to handle common <select> lists
 Summary(pl.UTF-8):	%{_pearname} - małe klasy do obsługi list <select>
 Name:		php-pear-%{_pearname}
-Version:	1.1
-Release:	5
+Version:	1.2.0
+Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	182210f08e809d51208ae4ecc70a4f3c
+# Source0-md5:	c5423721b258a4b10d2bbcd6ebde6d79
 URL:		http://pear.php.net/package/HTML_Select_Common/
-BuildRequires:	php-pear-PEAR
+BuildRequires:	php-pear-PEAR >= 1:1.9.0
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-pear
@@ -42,13 +39,15 @@ Ta klasa ma w PEAR status: %{_status}.
 %prep
 %pear_package_setup
 
-mkdir -p docs/%{_pearname}
-mv ./%{php_pear_dir}/%{_class}/%{_subclass}/Common/examples docs/%{_pearname}
+mv docs/%{_pearname}/examples .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,8 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc install.log
-%doc docs/%{_pearname}/examples
 %{php_pear_dir}/.registry/*.reg
-%dir %{php_pear_dir}/%{_class}/%{_subclass}
-%dir %{php_pear_dir}/%{_class}/%{_subclass}/Common
-%{php_pear_dir}/%{_class}/%{_subclass}/Common/*.php
+%dir %{php_pear_dir}/HTML/Select
+%{php_pear_dir}/HTML/Select/Common
+
+%{_examplesdir}/%{name}-%{version}
