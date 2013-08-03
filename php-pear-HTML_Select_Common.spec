@@ -5,7 +5,7 @@ Summary:	%{_pearname} - small classes to handle common <select> lists
 Summary(pl.UTF-8):	%{_pearname} - małe klasy do obsługi list <select>
 Name:		php-pear-%{_pearname}
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -16,7 +16,6 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-pear
 Requires:	php-pear-I18N >= 0.8
-Obsoletes:	php-pear-HTML_Select
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
