@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		stable
 %define		_pearname	HTML_Select_Common
 Summary:	%{_pearname} - small classes to handle common <select> lists
